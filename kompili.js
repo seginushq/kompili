@@ -1,17 +1,40 @@
+/**
+ * Kompili - An extended TypeScript Compiler
+ *
+ * Copyright (c) 2015 TADOKORO Saneyuki, Seginus.
+ */
+
 var ts = require('typescript');
 var glob = require('glob');
-var projectPath = process.argv[2];
 
-compile(readConfig(projectPath + '/tsconfig.json'));
+exports.compile = function (options) {
+  var program = ts.createProgram(options.files, options.compilerOptions);
+  var emitResult = program.emit();
 
-function readConfig(confPath) {
+  var allDiagnostics = ts.getPreEmitDiagnostics(program).concat(emitResult.diagnostics);
+
+  allDiagnostics.forEach(function (diagnostic) {
+    var info = diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start);
+    var message = ts.flattenDiagnosticMessageText(diagnostic.messageText, '\n');
+    console.log(diagnostic.file.fileName
+      + ' (' + (info.line + 1) + ',' + (info.character + 1) + '): ' + message);
+  });
+
+  var exitCode = emitResult.emitSkipped ? 1 : 0;
+
+  console.log('Process exiting with code ' + exitCode + '.');
+
+  process.exit(exitCode);
+};
+
+exports.readConfig = function (confPath) {
   var tsconfig = require(confPath);
 
   return {
     files: getFiles(tsconfig),
     compilerOptions: getCompilerOptions(tsconfig)
   };
-}
+};
 
 function getFiles(tsconfig) {
   var files = tsconfig.files ? Array.prototype.slice.apply(tsconfig.files) : [];
@@ -55,24 +78,4 @@ function getScriptTarget(target) {
 
 function getModuleKind(module) {
   return module.replace(/commonjs/i, 'CommonJS').replace(/amd/i, 'AMD');
-}
-
-function compile(options) {
-  var program = ts.createProgram(options.files, options.compilerOptions);
-  var emitResult = program.emit();
-
-  var allDiagnostics = ts.getPreEmitDiagnostics(program).concat(emitResult.diagnostics);
-
-  allDiagnostics.forEach(function (diagnostic) {
-    var info = diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start);
-    var message = ts.flattenDiagnosticMessageText(diagnostic.messageText, '\n');
-    console.log(diagnostic.file.fileName
-      + ' (' + (info.line + 1) + ',' + (info.character + 1) + '): ' + message);
-  });
-
-  var exitCode = emitResult.emitSkipped ? 1 : 0;
-
-  console.log('Process exiting with code ' + exitCode + '.');
-
-  process.exit(exitCode);
 }

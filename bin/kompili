@@ -1,2 +1,28 @@
 #!/usr/bin/env node
-require('..');
+var cpath;
+var kompili = require('..');
+var fs = require('fs');
+var path = require('path');
+var projectPath = process.argv[2];
+
+if (!projectPath) {
+  console.error('The project path required.');
+  process.exit(1);
+}
+
+cpath = path.resolve(projectPath + '/tsconfig.json');
+
+fs.open(cpath, 'r', function (err, fd) {
+  if (err) {
+    if (err.code === 'ENOENT')
+      console.error("File '" + err.path + "' is not found.");
+    else
+      console.error(err);
+
+    process.exit(1);
+  }
+
+  var config = kompili.readConfig(cpath);
+
+  kompili.compile(config);
+});

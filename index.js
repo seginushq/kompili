@@ -1,1 +1,1 @@
-module.exports = require('kompili');
+module.exports = require('./kompili');
