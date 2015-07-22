@@ -1,0 +1,35 @@
+{
+  "name": "kompili",
+  "version": "0.0.1",
+  "description": "A extended TypeScript compiler",
+  "keywords": [
+    "kompili",
+    "TypeScript",
+    "tsc"
+  ],
+  "author": {
+    "name": "TADOKORO Saneyuki",
+    "email": "saneyan@seginus.jp"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/seginushq/kompili"
+  },
+  "maintainers": [
+    {
+      "name": "TADOKORO Saneyuki",
+      "email": "saneyan@seginus.jp"
+    }
+  ],
+  "main": "./index",
+  "bin": {
+    "kompili": "./bin/kompili"
+  },
+  "engines": {
+    "node": ">= 0.8.x"
+  },
+  "devDependencies": {
+    "typescript": "^1.5.0-beta"
+  }
+}
