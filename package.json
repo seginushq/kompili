@@ -30,6 +30,6 @@
     "node": ">= 0.8.x"
   },
   "devDependencies": {
-    "typescript": "1.5.4"
+    "typescript": "1.5.3"
   }
 }
