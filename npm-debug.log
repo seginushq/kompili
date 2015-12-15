@@ -1,0 +1,97 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@2.14.7
+3 info using node@v4.2.1
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/src',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /home/saneyan/.npm/kompili/0.0.4/package.tgz not in flight; packing
+9 verbose makeDirectory /home/saneyan/.npm creation not in flight; initializing
+10 silly makeDirectory /home/saneyan/.npm uid: 1000 gid: 1000
+11 verbose tar pack [ '/home/saneyan/.npm/kompili/0.0.4/package.tgz', '/src' ]
+12 verbose tarball /home/saneyan/.npm/kompili/0.0.4/package.tgz
+13 verbose folder /src
+14 info prepublish kompili@0.0.4
+15 verbose addLocalTarball adding from inside cache /home/saneyan/.npm/kompili/0.0.4/package.tgz
+16 silly cache afterAdd kompili@0.0.4
+17 verbose afterAdd /home/saneyan/.npm/kompili/0.0.4/package/package.json not in flight; writing
+18 verbose afterAdd /home/saneyan/.npm/kompili/0.0.4/package/package.json written
+19 silly publish { name: 'kompili',
+19 silly publish   version: '0.0.4',
+19 silly publish   description: 'A extended TypeScript compiler',
+19 silly publish   keywords: [ 'kompili', 'TypeScript', 'tsc' ],
+19 silly publish   author: { name: 'TADOKORO Saneyuki', email: 'saneyan@seginus.jp' },
+19 silly publish   license: 'MIT',
+19 silly publish   repository: { type: 'git', url: 'git://github.com/seginushq/kompili.git' },
+19 silly publish   maintainers: [ { name: 'TADOKORO Saneyuki', email: 'saneyan@seginus.jp' } ],
+19 silly publish   main: './index',
+19 silly publish   bin: { kompili: './bin/kompili' },
+19 silly publish   engines: { node: '>= 0.8.x' },
+19 silly publish   devDependencies: { typescript: '1.7.5' },
+19 silly publish   dependencies: { glob: '^5.0.14' },
+19 silly publish   readme: '# kompili\n\nAn extended TypeScript compiler\n\n## Installation\n\n```\nnpm install -g kompili\n```\n\n## Usage\n\nSpecify project directory containing `tsconfig.json` which has kompili options.\n\n```\nkompili path/to/project\n```\n\n## Options\n\n * `compilerOptions`: Same to the official TypeScript compiler `tsc`.\n * `files`: Add source files.\n * `filesGlob`: Add glob pattern to specify source files.\n',
+19 silly publish   readmeFilename: 'README.md',
+19 silly publish   gitHead: 'bd1bee909363220cc02c064cf2249e3e9c32c714',
+19 silly publish   bugs: { url: 'https://github.com/seginushq/kompili/issues' },
+19 silly publish   homepage: 'https://github.com/seginushq/kompili#readme',
+19 silly publish   _id: 'kompili@0.0.4',
+19 silly publish   scripts: {},
+19 silly publish   _shasum: 'eac95890f92e2af4056b0827a6c5ebf72ec5bba9',
+19 silly publish   _from: '.' }
+20 verbose getPublishConfig undefined
+21 silly mapToRegistry name kompili
+22 silly mapToRegistry using default registry
+23 silly mapToRegistry registry https://registry.npmjs.org/
+24 silly mapToRegistry uri https://registry.npmjs.org/kompili
+25 verbose publish registryBase https://registry.npmjs.org/
+26 silly publish uploading /home/saneyan/.npm/kompili/0.0.4/package.tgz
+27 verbose request uri https://registry.npmjs.org/kompili
+28 verbose request sending authorization for write operation
+29 info attempt registry request try #1 at 9:38:15 AM
+30 verbose request using bearer token for auth
+31 verbose request id 27b58db847451c2a
+32 http request PUT https://registry.npmjs.org/kompili
+33 http 403 https://registry.npmjs.org/kompili
+34 verbose headers { 'content-type': 'application/json',
+34 verbose headers   'cache-control': 'max-age=300',
+34 verbose headers   'content-length': '99',
+34 verbose headers   'accept-ranges': 'bytes',
+34 verbose headers   date: 'Tue, 15 Dec 2015 09:38:15 GMT',
+34 verbose headers   via: '1.1 varnish',
+34 verbose headers   connection: 'keep-alive',
+34 verbose headers   'x-served-by': 'cache-lax1434-LAX',
+34 verbose headers   'x-cache': 'MISS',
+34 verbose headers   'x-cache-hits': '0',
+34 verbose headers   'x-timer': 'S1450172295.747091,VS0,VE140' }
+35 verbose request invalidating /home/saneyan/.npm/registry.npmjs.org/kompili on PUT
+36 error publish Failed PUT 403
+37 verbose stack Error: You do not have permission to publish 'kompili'. Are you logged in as the correct user? : kompili
+37 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+37 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+37 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+37 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:198:22)
+37 verbose stack     at emitTwo (events.js:87:13)
+37 verbose stack     at Request.emit (events.js:172:7)
+37 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1063:14)
+37 verbose stack     at emitOne (events.js:82:20)
+37 verbose stack     at Request.emit (events.js:169:7)
+37 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1009:12)
+38 verbose statusCode 403
+39 verbose pkgid kompili
+40 verbose cwd /src
+41 error Linux 4.2.5-1-ARCH
+42 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+43 error node v4.2.1
+44 error npm  v2.14.7
+45 error code E403
+46 error You do not have permission to publish 'kompili'. Are you logged in as the correct user? : kompili
+47 error If you need help, you may report this error at:
+47 error     <https://github.com/npm/npm/issues>
+48 verbose exit [ 1, true ]

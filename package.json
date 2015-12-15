@@ -1,6 +1,6 @@
 {
   "name": "kompili",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A extended TypeScript compiler",
   "keywords": [
     "kompili",
@@ -30,7 +30,7 @@
     "node": ">= 0.8.x"
   },
   "devDependencies": {
-    "typescript": "1.6.2"
+    "typescript": "1.7.5"
   },
   "dependencies": {
     "glob": "^5.0.14"
