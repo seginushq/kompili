@@ -29,10 +29,8 @@
   "engines": {
     "node": ">= 0.8.x"
   },
-  "devDependencies": {
-    "typescript": "1.7.5"
-  },
   "dependencies": {
+    "typescript": "1.7.5",
     "glob": "^5.0.14"
   }
 }
